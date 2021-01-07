@@ -1,0 +1,37 @@
+section.meals {}
+
+.meals {
+  /* color: green; */
+  /* border: black 1px solid; */
+  padding: 0 0.7em 0 0.7em;
+  margin: 1em;
+  flex: 300px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.meals h3 {
+  color: #859fb5;
+  text-align: center;
+  text-decoration: wavy;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  padding-bottom: 1em;
+
+}
+
+.meals p:nth-child(2) {
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.meals p:last-child  {
+  text-align: center;
+}
+
+.bold-text{
+  font-weight: bold;
+}
