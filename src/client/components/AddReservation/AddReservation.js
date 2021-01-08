@@ -11,8 +11,11 @@ export const AddReservation = () => {
     contact_email: "",
   });
 
+  const [disableForm, setDisable] = useState(false);
+
   const submit = async (event) => {
     event.preventDefault();
+    setDisable(true);
 
     try {
       const data = await fetch("http://localhost:5000/api/reservations", {
@@ -30,6 +33,11 @@ export const AddReservation = () => {
     } catch (error) {
       console.log(error);
     }
+    alert(
+      `Thank you ${reservation.contact_name}. Your reservation has been registered`
+    );
+
+    setDisable(false);
   };
 
   return (
@@ -84,7 +92,9 @@ export const AddReservation = () => {
             setReservation({ ...reservation, contact_email: e.target.value })
           }
         ></input>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={disableForm}>
+          Submit
+        </button>
       </form>
     </>
   );

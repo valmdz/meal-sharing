@@ -3,7 +3,6 @@
 * {
   font-family: 'Tenor Sans', sans-serif;
   box-sizing: border-box;
-  
 }
 
 #root {
@@ -74,10 +73,13 @@ button {
   font-size: 17px;
   margin-left: 1em;
   text-transform: uppercase;
-
 }
 
-.container-meals{
+button[disabled] {
+  background-color: lightgray;
+}
+
+.container-meals {
   margin-bottom: 2em;
   /* border: red solid 1px; */
 }
@@ -119,11 +121,12 @@ footer {
   margin-bottom: 1.5em;
 }
 
-form{
+form {
   display: grid;
   grid-template-areas: "left right";
 }
-input{
+
+input {
   margin: 1em;
 }
 
