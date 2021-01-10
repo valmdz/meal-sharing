@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import Modal, { ReactModal } from "react-modal";
+
+Modal.setAppElement("#root");
+
 
 export const AddMeal = () => {
   const [title, setTitle] = useState("");
@@ -18,8 +22,28 @@ export const AddMeal = () => {
 
   // const createdDate = new Date();
 
+  const [disableForm, setDisable] = useState(false);
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+    setDisable(true);
+  }
+
+  // function afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = '#f00';
+  // }
+
+  function closeModal() {
+    setIsOpen(false);
+    setDisable(false);
+  }
+
   const submit = async (event) => {
     event.preventDefault();
+    setDisable(true);
+    setDisable(false);
     // console.log(title, description, maxReservations, date, location, price, createdDate)
     try {
       const data = await fetch("http://localhost:5000/api/meals", {
@@ -38,59 +62,105 @@ export const AddMeal = () => {
     } catch (error) {
       console.log(error);
     }
+    openModal();
   };
 
   return (
-    <>
+    <div className="container">
       <div>
-        <h1 class="section-heading">Arrange a feast</h1>
+        <h1 className="section-heading">Arrange a feast</h1>
       </div>
       <form onSubmit={submit}>
-        Feast title:
+        Feast title: *
         <input
           type="text"
           value={title}
           placeholder="Give your feast a title"
           onChange={(e) => setTitle(e.target.value)}
           // onChange={(e) => setMeal({ ...meal, title: e.target.value })}
+          required
         ></input>
-        Description:
-        <input
+        Description: *
+        <textarea
           type="text"
           value={description}
           placeholder="Brief description"
           onChange={(e) => setDescription(e.target.value)}
-        ></input>
-        Max reservations:
+          required
+          rows="5"
+        ></textarea>
+        Max reservations: *
         <input
           type="number"
           value={maxReservations}
           placeholder="Enter a number"
           onChange={(e) => setMaxReservations(e.target.value)}
+          required
         ></input>
-        When:
+        When: *
         <input
           type="datetime-local"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          required
         ></input>
-        Location:
+        Location: *
         <input
           type="text"
           value={location}
           placeholder="Enter full address"
           onChange={(e) => setLocation(e.target.value)}
+          required
         ></input>
-        Price (DKK):
+        Price (DKK): *
         <input
           type="text"
           value={price}
           placeholder="Enter a number"
           onChange={(e) => setPrice(e.target.value)}
+          required
         ></input>
-        <button type="submit">Submit</button>
+        <p></p>
+        <p class="small-text">Required fields *</p>
+        <button type="submit" disabled={disableForm}>
+          Submit
+        </button>
       </form>
-    </>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Your reservation has been registered"
+        style={{
+          overlay: {
+            top: "5%",
+            left: "20%",
+            maxWidth: "70%",
+            maxHeight: "90%",
+            backgroundColor: "none",
+          },
+          content: {
+            position: "absolute",
+            borderRadius: "10px",
+            border: "8px solid rgb(215, 179, 189)",
+            top: "20px",
+            padding: "3em",
+          },
+        }}
+      >
+        <div className="pop-up">
+          <h1>Your feast {title} has been created,</h1>
+          <h2>Date: {date} guests</h2>
+          <h2>Location: {location} guests</h2>
+          <h2>Price: {price} guests</h2>
+          <h2>Maximum guests: {maxReservations} guests</h2>
+
+          <h3>See you there!</h3>
+          <button onClick={closeModal} className="buttonModal">
+            Close
+          </button>
+        </div>
+      </Modal>
+    </div>
   );
 };
 

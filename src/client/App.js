@@ -11,9 +11,9 @@ import AddReservation from "./components/AddReservation/AddReservation";
 const App = () => {
   return (
     <Router>
-      {/* <div>
+      <div>
         <h1>Meal sharing</h1>
-      </div> */}
+      </div>
       <ul className="menu">
         <li>
           <Link to="/">Home</Link>

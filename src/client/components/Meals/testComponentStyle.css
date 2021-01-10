@@ -1,11 +1,13 @@
-section.meals {}
 
 .meals {
   /* color: green; */
   /* border: black 1px solid; */
-  padding: 0 0.7em 0 0.7em;
+  padding: 0 1.5em 0 1.5em;
   margin: 1em;
   flex: 300px;
+  border-radius: 20px;
+  background-color: #ffffffd1;;
+  color:#7b8155;
 }
 
 .container {
@@ -14,7 +16,7 @@ section.meals {}
 }
 
 .meals h3 {
-  color: #859fb5;
+  /* color: #859fb5; */
   text-align: center;
   text-decoration: wavy;
   text-decoration-line: underline;
