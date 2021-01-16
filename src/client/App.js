@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./index.css";
 import Meals from "./components/Meals/Meals";
@@ -8,9 +8,19 @@ import Reservations from "./components/Reservations/Reservations";
 import Reviews from "./components/Reviews/Reviews";
 import AddReservation from "./components/AddReservation/AddReservation";
 import SearchMeal from "./components/SearchMeal/SearchMeal";
+import MyRegistrations from "./components/MyRegistrations/MyRegistrations";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const respMeals = await fetch("http://localhost:5000/api/meals");
+      const jsonResponse = await respMeals.json();
+      setMeals(() => jsonResponse);
+    })();
+  }, []);
 
   return (
     <Router>
@@ -48,10 +58,13 @@ const App = () => {
         <li>
           <Link to="/reviews">Reviews</Link>
         </li>
+        <li>
+          <Link to="/my-registrations">My registrations</Link>
+        </li>
       </ul>
 
       <Route exact path="/">
-        <Home></Home>
+        <Home meals={meals}></Home>
       </Route>
       <Route exact path="/reservations">
         <Reservations></Reservations>
@@ -63,10 +76,13 @@ const App = () => {
         <Reviews></Reviews>
       </Route>
       <Route exact path="/meals">
-        <Meals search={search}></Meals>
+        <Meals search={search} meals={meals}></Meals>
       </Route>
       <Route exact path="/add-meal">
         <AddMeal></AddMeal>
+      </Route>
+      <Route exact path="/my-registrations">
+        <MyRegistrations meals={meals}></MyRegistrations>
       </Route>
     </Router>
   );

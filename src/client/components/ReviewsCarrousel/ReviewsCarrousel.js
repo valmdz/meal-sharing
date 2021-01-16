@@ -15,7 +15,6 @@ export const ReviewsCarrousel = () => {
     (async () => {
       const respMeals = await fetch("http://localhost:5000/api/reviews");
       const jsonResponse = await respMeals.json();
-      console.log(jsonResponse);
       setReviews(() => {
         return jsonResponse;
       });

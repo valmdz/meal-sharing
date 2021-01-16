@@ -2,7 +2,7 @@ import React from "react";
 import ReviewsCarrousel from "../ReviewsCarrousel/ReviewsCarrousel";
 import NextFeast from "../NextFeast/NextFeast";
 
-export const Home = () => {
+export const Home = ({ meals }) => {
   return (
     <>
       <section className="home">
@@ -15,7 +15,7 @@ export const Home = () => {
         </div>
       </section>
       <div className="carousel">
-        <NextFeast></NextFeast>
+        <NextFeast meals={meals} />
         <ReviewsCarrousel />
       </div>
     </>

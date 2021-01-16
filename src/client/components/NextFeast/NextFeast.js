@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export const NextFeast = ({ search }) => {
-  const [meals, setMeals] = useState([]);
+/* If there is an upcomming meal it is rendered, otherwise a message saying that there is no upcomming feast is rendered. */
+const NextFeastAux = ({ value }) => {
+  if (value === undefined) {
+    return <p>No upcomming feasts</p>;
+  }
+  return (
+    <div>
+      There is a next feast, yay.
+      <p>{value.title}</p>
+    </div>
+  );
+};
 
-  useEffect(() => {
-    (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/meals");
-      const jsonResponse = await respMeals.json();
-      setMeals(() => {
-        return jsonResponse;
-      });
-    })();
-  }, []);
-
+export const NextFeast = ({ meals }) => {
   const now = new Date();
 
   const earliestNextMeal = meals
@@ -22,9 +23,9 @@ export const NextFeast = ({ search }) => {
 
   return (
     <section className="container-meals">
-      <div>
-        <h1 className="section-heading">Upcoming feast</h1>
-      </div>
+      <h1 className="section-heading">Upcoming feast</h1>
+
+      <NextFeastAux value={earliestNextMeal} />
     </section>
   );
 };

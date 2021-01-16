@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./testComponentStyle.css";
 
-export const Meals = ({ search }) => {
-  const [meals, setMeals] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/meals");
-      const jsonResponse = await respMeals.json();
-      setMeals(() => {
-        return jsonResponse;
-      });
-    })();
-  }, []);
+export const Meals = ({ search, meals }) => {
   const filteredMeals = meals.filter((meal) =>
     meal.title.toLowerCase().includes(search.toLowerCase())
   );
