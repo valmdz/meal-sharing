@@ -1,13 +1,10 @@
-
 .meals {
-  /* color: green; */
-  /* border: black 1px solid; */
   padding: 0 1.5em 0 1.5em;
   margin: 1em;
   flex: 300px;
   border-radius: 20px;
-  background-color: #ffffffd1;;
-  color:#7b8155;
+  background-color: #eccbd4;
+  color: #703E30;
 }
 
 .container {
@@ -16,13 +13,11 @@
 }
 
 .meals h3 {
-  /* color: #859fb5; */
   text-align: center;
-  text-decoration: wavy;
-  text-decoration-line: underline;
   text-transform: capitalize;
   padding-bottom: 1em;
-
+  font-size: 1.5em;
+  padding-top: 0.5em;
 }
 
 .meals p:nth-child(2) {
@@ -30,10 +25,10 @@
   text-align: center;
 }
 
-.meals p:last-child  {
+.meals p:last-child {
   text-align: center;
 }
 
-.bold-text{
+.bold-text {
   font-weight: bold;
 }

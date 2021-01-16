@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./index.css";
 import Meals from "./components/Meals/Meals";
 import AddMeal from "./components/AddMeal/AddMeal";
@@ -7,13 +7,28 @@ import Home from "./components/Home/Home";
 import Reservations from "./components/Reservations/Reservations";
 import Reviews from "./components/Reviews/Reviews";
 import AddReservation from "./components/AddReservation/AddReservation";
+import SearchMeal from "./components/SearchMeal/SearchMeal";
 
 const App = () => {
+  const [search, setSearch] = useState("");
+
   return (
     <Router>
       <div>
-        <h1>Meal sharing</h1>
+        <img
+          src="src/client/logo-feastSharing-round.svg"
+          width="100px"
+          className="logo"
+        ></img>
+
+        <div className="search-bar">
+          <SearchMeal
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          ></SearchMeal>
+        </div>
       </div>
+
       <ul className="menu">
         <li>
           <Link to="/">Home</Link>
@@ -48,7 +63,7 @@ const App = () => {
         <Reviews></Reviews>
       </Route>
       <Route exact path="/meals">
-        <Meals></Meals>
+        <Meals search={search}></Meals>
       </Route>
       <Route exact path="/add-meal">
         <AddMeal></AddMeal>

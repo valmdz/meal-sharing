@@ -1,7 +1,4 @@
-/* eslint-disable camelcase */
-/* eslint-disable @typescript-eslint/camelcase */
 import React, { useState, useEffect } from "react";
-// import PropTypes from "prop-types";
 
 export const Reservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -18,11 +15,11 @@ export const Reservations = () => {
   }, []);
 
   return (
-    <section class="container-meals">
+    <section className="container-meals">
       <div>
-        <h1 class="section-heading">Reservations</h1>
+        <h1 className="section-heading">Reservations</h1>
       </div>
-      <div class="container">
+      <div className="container">
         {reservations.map((reservation) => {
           return (
             <div className="meals">
@@ -32,13 +29,13 @@ export const Reservations = () => {
                   : "anonymous"}
               </h3>
               <p>
-                <span class="bold-text">Number of people:</span>{" "}
+                <span className="bold-text">Number of people:</span>{" "}
                 {reservation.number_of_guests
                   ? reservation.number_of_guests
                   : "1"}{" "}
               </p>
               <p>
-                <span class="bold-text">Contact number:</span>{" "}
+                <span className="bold-text">Contact number:</span>{" "}
                 {reservation.contact_phonenumber
                   ? reservation.contact_phonenumber
                   : "none"}{" "}

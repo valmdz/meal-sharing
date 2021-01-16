@@ -1,3 +1,4 @@
+const { request, response } = require("express");
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
@@ -8,6 +9,19 @@ router.get("/", async (request, response) => {
     const reservations = await knex("reservations").select("*");
     response.json(reservations);
   } catch (error) {
+    throw error;
+  }
+});
+
+router.get("/:id", async (request, response) => {
+  try {
+    const id = parseInt(request.params.id);
+    const reservationsById = await knex("reservations")
+      .select("*")
+      .where({ id_reservations: id });
+    response.send(reservationsById);
+  } catch (error) {
+    response.status(500).send();
     throw error;
   }
 });

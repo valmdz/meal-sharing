@@ -3,8 +3,6 @@
 * {
   font-family: 'Tenor Sans', sans-serif;
   box-sizing: border-box;
-  /* background-color: #7b8155;
-  color: white; */
 }
 
 #root {
@@ -13,12 +11,16 @@
   padding-right: 15%;
   color: white;
   margin-bottom: 10em;
-  /* height: 100vh; */
-  /* height: 100%; */
+
 }
 
 #root h1, h2, h3 {
   font-family: 'Tenor Sans', sans-serif;
+}
+
+img.logo {
+  margin-top: 1em;
+  border-radius: 0%;
 }
 
 p {
@@ -54,7 +56,6 @@ body {
   font-size: 17px;
   color: #7b8155;
   background-color: #d7b3bd;
-  /* color: rgb(58, 58, 58); */
 }
 
 ul {
@@ -65,8 +66,18 @@ ul {
 
 a {
   text-decoration: none;
-  color: #7b8155;
-  /* color: #2d3233; */
+  color: #703E30;
+}
+
+.search-icon {
+  margin-left: 1em;
+  border: 2px solid white;
+  padding: 0.6em 0.5em 0.2em 0.5em;
+  border-radius: 8px;
+}
+
+.magnifiyingGlass {
+  border-radius: 0;
 }
 
 button {
@@ -79,7 +90,6 @@ button {
   font-size: 17px;
   margin-left: 1em;
   text-transform: uppercase;
-  margin: 3em 0 0 0;
   width: max-content;
 }
 
@@ -96,15 +106,18 @@ button[disabled] {
 }
 
 .container-meals {
-  /* margin-top: 5em; */
   margin-bottom: 2em;
-  /* border: red solid 1px; */
+}
+
+.containerSearch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 footer {
   position: fixed;
   margin-top: 4em;
-  /* left: 0; */
   bottom: 0;
   width: 100%;
   height: 6em;
@@ -124,35 +137,52 @@ footer {
 .home-intro h1 {
   font-size: 3.5em;
   line-height: 1.2em;
-  /* padding: 1em; */
   text-transform: uppercase;
   font-weight: lighter;
 }
 
 .section-heading {
+  color: #703E30;
   text-align: center;
   text-transform: uppercase;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: lighter;
-  /* margin-top: 2em; */
   margin-bottom: 1.5em;
-  transform-origin: 0 0;
-  transform: rotate(90deg);
-  position: fixed;
-  top: 40px;
-  left: 140px;
+}
+
+.carouselContent {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  padding-top: 2em;
+}
+
+.carouselContent>* {
+  flex-grow: 2;
+  align-self: flex-start;
+}
+
+.CarouselTitle {
+  margin-right: 1em;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.carouselReviews {
+  padding: 2em;
+  background: #eccbd4;
+  margin-bottom: 1.5em;
+  border-radius: 20px;
 }
 
 form {
   display: grid;
-  /* grid-template-areas: "left right"; */
   grid-template-columns: 1fr 2fr;
   row-gap: 1.5em;
   column-gap: 2em;
 }
 
 input, textarea {
-  /* margin: 1em; */
   border: none;
   padding: 0.7em;
   color: #252525;
@@ -164,13 +194,6 @@ input, textarea {
   text-align: right;
 }
 
-/* @media screen and (max-width: 1400px) {
-  #root {
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-} */
-
 @media screen and (max-width: 750px) {
   #root {
     margin-left: 1em;
@@ -179,8 +202,7 @@ input, textarea {
     padding-right: 0;
   }
   .menu {
-    /* align-items: left; */
-    /* display: contents; */
+
     flex-direction: column;
     left: 0;
     align-items: flex-end;
@@ -195,17 +217,19 @@ input, textarea {
   .menu li {
     padding: 0.5em;
   }
-  .section-heading {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
+
   img {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
   }
+  div.container {
+    margin-top: 1em;
+  }
   h1.section-heading {
     font-size: 2em;
+    text-align: left;
+    margin-bottom: 1em;
   }
   .home-intro h1 {
     font-size: 2em;
@@ -217,15 +241,11 @@ input, textarea {
   button {
     width: 10em;
   }
-  .section-heading {
-    top: 40px;
-    left: 50px;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-  }
   footer {
     width: 100%;
     position: unset;
+  }
+  .carouselContent {
+    display: flow-root;
   }
 }
