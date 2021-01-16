@@ -1,14 +1,45 @@
 import React from "react";
 
-/* If there is an upcomming meal it is rendered, otherwise a message saying that there is no upcomming feast is rendered. */
 const NextFeastAux = ({ value }) => {
   if (value === undefined) {
-    return <p>No upcomming feasts</p>;
+    return (
+      <div>
+        <h1 className="upcomingTitle">Upcoming feast</h1>
+        <p>No upcomming feasts</p>
+      </div>
+    );
   }
   return (
-    <div>
-      There is a next feast, yay.
-      <p>{value.title}</p>
+    <div class="upcomingContainer">
+      <div class="upcomingFeast">
+        {console.log(value.when)}
+        <h1>
+          <span className="bold-text">Feast: </span>
+          {value.title}
+        </h1>
+        <h2>
+          <span className="bold-text">Description: </span> {value.description}
+        </h2>
+        <h3>
+          <span className="bold-text">Capacity: </span> {value.max_reservations}
+        </h3>
+        <h3>
+          <span className="bold-text">Price: </span> {value.price} DKK
+        </h3>
+        <h3>
+          <span className="bold-text">When: </span>{" "}
+          {new Date(value.when).toLocaleDateString("en-GB", {
+            timeZone: "UTC",
+          })}
+        </h3>
+        <h3>
+          <span className="bold-text">Where: </span> {value.location}
+        </h3>
+      </div>
+      <div>
+        <h1 className="upcomingTitle">Upcoming feast</h1>
+        <button>Make a reservation!</button>
+      </div>
     </div>
   );
 };
@@ -23,8 +54,6 @@ export const NextFeast = ({ meals }) => {
 
   return (
     <section className="container-meals">
-      <h1 className="section-heading">Upcoming feast</h1>
-
       <NextFeastAux value={earliestNextMeal} />
     </section>
   );

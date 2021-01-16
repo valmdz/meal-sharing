@@ -23,7 +23,7 @@ export const ReviewsCarrousel = () => {
 
   return (
     <div className="carouselContent">
-      <h1 className="CarouselTitle">What people say</h1>
+      <h1 className="carouselTitle">What people say about our events</h1>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={150}

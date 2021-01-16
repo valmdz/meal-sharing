@@ -1,14 +1,14 @@
-const { request, response } = require("express");
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
 
-router.get("/", async (request, response) => {
+router.get("/", async (_request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const reservations = await knex("reservations").select("*");
     response.json(reservations);
   } catch (error) {
+    response.status(500).send();
     throw error;
   }
 });

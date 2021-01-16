@@ -22,15 +22,26 @@ const App = () => {
     })();
   }, []);
 
+  const [reservations, setReservations] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const respMeals = await fetch("http://localhost:5000/api/reservations");
+      const jsonResponse = await respMeals.json();
+      setReservations((prev) => {
+        return jsonResponse;
+      });
+    })();
+  }, []);
+
   return (
     <Router>
       <div>
         <img
-          src="src/client/logo-feastSharing-round.svg"
-          width="100px"
+          src="src/client/finalLogo.svg"
+          width="300px"
           className="logo"
         ></img>
-
         <div className="search-bar">
           <SearchMeal
             value={search}
@@ -50,16 +61,10 @@ const App = () => {
           <Link to="/add-meal">Add a meal</Link>
         </li>
         <li>
-          <Link to="/reservations">Reservations</Link>
-        </li>
-        <li>
           <Link to="/add-reservation">Add a reservation</Link>
         </li>
         <li>
-          <Link to="/reviews">Reviews</Link>
-        </li>
-        <li>
-          <Link to="/my-registrations">My registrations</Link>
+          <Link to="/my-registrations">Handle registrations</Link>
         </li>
       </ul>
 
@@ -67,7 +72,7 @@ const App = () => {
         <Home meals={meals}></Home>
       </Route>
       <Route exact path="/reservations">
-        <Reservations></Reservations>
+        <Reservations reservations={reservations}></Reservations>
       </Route>
       <Route exact path="/add-reservation">
         <AddReservation></AddReservation>
@@ -82,7 +87,10 @@ const App = () => {
         <AddMeal></AddMeal>
       </Route>
       <Route exact path="/my-registrations">
-        <MyRegistrations meals={meals}></MyRegistrations>
+        <MyRegistrations
+          meals={meals}
+          reservations={reservations}
+        ></MyRegistrations>
       </Route>
     </Router>
   );

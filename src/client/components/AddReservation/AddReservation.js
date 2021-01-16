@@ -86,7 +86,7 @@ export const AddReservation = () => {
           <input
             type="text"
             value={reservation.contact_name}
-            placeholder="Enter name and lastname"
+            placeholder="Enter name and last name"
             onChange={(e) =>
               setReservation({ ...reservation, contact_name: e.target.value })
             }
@@ -96,7 +96,7 @@ export const AddReservation = () => {
           <input
             type="text"
             value={reservation.contact_phonenumber}
-            placeholder="Enter your phonenumber"
+            placeholder="Enter your phone number"
             onChange={(e) =>
               setReservation({
                 ...reservation,

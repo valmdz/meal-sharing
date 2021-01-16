@@ -55,6 +55,18 @@ router.get("/:id", async (request, response) => {
   }
 });
 
+router.put("/:id", async (request, response) => {
+  try {
+    const id = parseInt(request.params.id);
+    await knex("meals").where({ id: id }).update(request.body);
+    const updatedMeal = await knex("meals").where({ id_meals: id }).select("*");
+    response.send(updatedMeal);
+    console.log(updatedMeal);
+  } catch (error) {
+    throw error;
+  }
+});
+
 router.delete("/:id", async (request, response) => {
   try {
     const id = parseInt(request.params.id);
@@ -68,5 +80,3 @@ router.delete("/:id", async (request, response) => {
 });
 
 module.exports = router;
-
-const coalesce = (a, b) => (a === null ? b : a);

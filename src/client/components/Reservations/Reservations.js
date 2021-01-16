@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Reservations = () => {
-  const [reservations, setReservations] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/reservations");
-      const jsonResponse = await respMeals.json();
-      console.log(jsonResponse);
-      setReservations((prev) => {
-        return jsonResponse;
-      });
-    })();
-  }, []);
+export const Reservations = ({reservations}) => {
 
   return (
     <section className="container-meals">
@@ -38,6 +26,18 @@ export const Reservations = () => {
                 <span className="bold-text">Contact number:</span>{" "}
                 {reservation.contact_phonenumber
                   ? reservation.contact_phonenumber
+                  : "none"}{" "}
+              </p>
+              <p>
+                <span className="bold-text">Contact email:</span>{" "}
+                {reservation.contact_email
+                  ? reservation.contact_email
+                  : "none"}{" "}
+              </p>
+              <p>
+                <span className="bold-text">Created date:</span>{" "}
+                {reservation.created_date
+                  ? reservation.created_date
                   : "none"}{" "}
               </p>
               <p>※</p>

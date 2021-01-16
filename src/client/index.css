@@ -10,8 +10,7 @@
   padding-left: 15%;
   padding-right: 15%;
   color: white;
-  margin-bottom: 10em;
-
+  margin-bottom: 20em;
 }
 
 #root h1, h2, h3 {
@@ -40,6 +39,7 @@ img {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 3em;
+  margin-top: 2em;
 }
 
 .menu li {
@@ -52,10 +52,11 @@ img {
 }
 
 body {
-  margin: 2px;
+  margin: 0px;
   font-size: 17px;
   color: #7b8155;
   background-color: #d7b3bd;
+  /* background: linear-gradient(180deg, #d7b3bd 0%,#c2a0a9 100%); */
 }
 
 ul {
@@ -162,7 +163,7 @@ footer {
   align-self: flex-start;
 }
 
-.CarouselTitle {
+.carouselTitle {
   margin-right: 1em;
   text-transform: uppercase;
   align-self: center;
@@ -194,6 +195,39 @@ input, textarea {
   text-align: right;
 }
 
+.previewReservation {
+  margin-bottom: 2em;
+  color: #703E30;
+  padding: 2em;
+  background: #eccbd4;
+  margin-top: 1.5em;
+  border-radius: 20px;
+}
+
+.upcomingFeast {
+  width: max-content;
+  margin-bottom: 2em;
+  /* color: #703E30; */
+  padding: 3em 5em;
+  background: #eccbd4;
+  margin-top: 1.5em;
+  border-radius: 20px;
+}
+
+.upcomingContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 4em 0;
+}
+
+.upcomingTitle {
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
 @media screen and (max-width: 750px) {
   #root {
     margin-left: 1em;
@@ -201,8 +235,10 @@ input, textarea {
     padding-left: 0;
     padding-right: 0;
   }
+  body {
+    margin: 0;
+  }
   .menu {
-
     flex-direction: column;
     left: 0;
     align-items: flex-end;
@@ -217,7 +253,6 @@ input, textarea {
   .menu li {
     padding: 0.5em;
   }
-
   img {
     max-width: 100%;
     margin: 0;
@@ -247,5 +282,16 @@ input, textarea {
   }
   .carouselContent {
     display: flow-root;
+  }
+  .upcomingContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: baseline;
+    margin: 0;
+  }
+  .upcomingFeast {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 2em;
   }
 }
