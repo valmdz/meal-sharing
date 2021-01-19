@@ -44,7 +44,7 @@ export const AddMeal = () => {
     setDisable(true);
     setDisable(false);
     try {
-      const data = await fetch("http://localhost:5000/api/meals", {
+      const data = await fetch("/api/meals", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

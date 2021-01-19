@@ -33,7 +33,7 @@ export const AddReservation = () => {
     setDisable(false);
 
     try {
-      const data = await fetch("http://localhost:5000/api/reservations", {
+      const data = await fetch("/api/reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

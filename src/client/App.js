@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/meals");
+      const respMeals = await fetch("/api/meals");
       const jsonResponse = await respMeals.json();
       setMeals(() => jsonResponse);
     })();
@@ -26,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/reservations");
+      const respMeals = await fetch("/api/reservations");
       const jsonResponse = await respMeals.json();
       setReservations((prev) => {
         return jsonResponse;

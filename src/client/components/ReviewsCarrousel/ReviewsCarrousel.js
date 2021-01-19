@@ -13,7 +13,7 @@ export const ReviewsCarrousel = () => {
 
   useEffect(() => {
     (async () => {
-      const respMeals = await fetch("http://localhost:5000/api/reviews");
+      const respMeals = await fetch("/api/reviews");
       const jsonResponse = await respMeals.json();
       setReviews(() => {
         return jsonResponse;
