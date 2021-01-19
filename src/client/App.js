@@ -9,6 +9,7 @@ import Reviews from "./components/Reviews/Reviews";
 import AddReservation from "./components/AddReservation/AddReservation";
 import SearchMeal from "./components/SearchMeal/SearchMeal";
 import MyRegistrations from "./components/MyRegistrations/MyRegistrations";
+import logo from './logo.png';
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -37,7 +38,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <img src="src/client/finalLogo.png" className="logo"></img>
+        <img src={logo} className="logo"></img>
         <div className="search-bar">
           <SearchMeal
             value={search}
