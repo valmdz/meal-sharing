@@ -20,6 +20,8 @@
 img.logo {
   margin-top: 1em;
   border-radius: 0%;
+  max-width: 250px;
+  margin-bottom: 1em;
 }
 
 p {
@@ -56,7 +58,6 @@ body {
   font-size: 17px;
   color: #7b8155;
   background-color: #d7b3bd;
-  /* background: linear-gradient(180deg, #d7b3bd 0%,#c2a0a9 100%); */
 }
 
 ul {
@@ -78,7 +79,7 @@ a {
 }
 
 .magnifiyingGlass {
-  border-radius: 0;
+  fill: white
 }
 
 button {
@@ -207,7 +208,6 @@ input, textarea {
 .upcomingFeast {
   width: max-content;
   margin-bottom: 2em;
-  /* color: #703E30; */
   padding: 3em 5em;
   background: #eccbd4;
   margin-top: 1.5em;
@@ -220,6 +220,10 @@ input, textarea {
   align-items: center;
   justify-content: space-evenly;
   margin: 4em 0;
+}
+
+svg {
+  width: 20px;
 }
 
 .upcomingTitle {

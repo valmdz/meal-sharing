@@ -37,11 +37,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <img
-          src="src/client/finalLogo.svg"
-          width="300px"
-          className="logo"
-        ></img>
+        <img src="src/client/finalLogo.png" className="logo"></img>
         <div className="search-bar">
           <SearchMeal
             value={search}

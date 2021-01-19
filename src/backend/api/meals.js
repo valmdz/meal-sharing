@@ -16,14 +16,13 @@ router.get("/", async (_request, response) => {
     const [meals] = await knex.schema.raw(sql);
     response.json(meals);
   } catch (error) {
+    response.status(500).send();
     throw error;
   }
 });
 
 router.post("/", async ({ body }, response) => {
   try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    console.log(body);
     const max_reservations = Number.parseInt(body.max_reservations, 10);
     if (Number.isNaN(max_reservations)) {
       response.status(400).send({ message: "Bad client! Not a number." });
@@ -61,8 +60,8 @@ router.put("/:id", async (request, response) => {
     await knex("meals").where({ id: id }).update(request.body);
     const updatedMeal = await knex("meals").where({ id_meals: id }).select("*");
     response.send(updatedMeal);
-    console.log(updatedMeal);
   } catch (error) {
+    response.status(500).send();
     throw error;
   }
 });

@@ -12,7 +12,6 @@ const NextFeastAux = ({ value }) => {
   return (
     <div class="upcomingContainer">
       <div class="upcomingFeast">
-        {console.log(value.when)}
         <h1>
           <span className="bold-text">Feast: </span>
           {value.title}

@@ -4,7 +4,6 @@ const knex = require("../database");
 
 router.get("/", async (_request, response) => {
   try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
     const sql = `
 SELECT
 meals.id_meals as meals_id_meals,
@@ -27,6 +26,7 @@ JOIN meals ON meal_id = meals.id_meals
     const [reviews] = await knex.schema.raw(sql);
     response.json(reviews);
   } catch (error) {
+    response.status(500).send();
     throw error;
   }
 });

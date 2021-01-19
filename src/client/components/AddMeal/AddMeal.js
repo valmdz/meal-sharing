@@ -11,16 +11,6 @@ export const AddMeal = () => {
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState(0);
 
-  // const [meal, setMeal] = useState({
-  //   title: "",
-  //   description: "",
-  //   maxReservations: 2,
-  //   date: new Date(),
-  // });
-  // const setTitle = (title) => setMeal({ ...meal, title });
-
-  // const createdDate = new Date();
-
   const [disableForm, setDisable] = useState(false);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -28,11 +18,6 @@ export const AddMeal = () => {
     setIsOpen(true);
     setDisable(true);
   }
-
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = '#f00';
-  // }
 
   function closeModal() {
     setIsOpen(false);
@@ -58,7 +43,8 @@ export const AddMeal = () => {
         }),
       });
     } catch (error) {
-      console.log(error);
+      response.status(400).send();
+      throw error;
     }
     openModal();
   };
@@ -76,7 +62,6 @@ export const AddMeal = () => {
             value={title}
             placeholder="Give your feast a title"
             onChange={(e) => setTitle(e.target.value)}
-            // onChange={(e) => setMeal({ ...meal, title: e.target.value })}
             required
           ></input>
           Description: *

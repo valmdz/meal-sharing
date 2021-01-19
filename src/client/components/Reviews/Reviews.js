@@ -7,7 +7,6 @@ export const Reviews = () => {
     (async () => {
       const respMeals = await fetch("/api/reviews");
       const jsonResponse = await respMeals.json();
-      console.log(jsonResponse);
       setReviews((prev) => {
         return jsonResponse;
       });

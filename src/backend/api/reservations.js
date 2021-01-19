@@ -4,7 +4,6 @@ const knex = require("../database");
 
 router.get("/", async (_request, response) => {
   try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
     const reservations = await knex("reservations").select("*");
     response.json(reservations);
   } catch (error) {
@@ -28,8 +27,6 @@ router.get("/:id", async (request, response) => {
 
 router.post("/", async ({ body }, response) => {
   try {
-    // // knex syntax for selecting things. Look up the documentation for knex for further info
-    console.log(body);
     const numberParsed = Number.parseInt(body.number_of_guests, 10);
     if (Number.isNaN(numberParsed)) {
       response.status(400).send({ message: "Bad client! Not a number." });

@@ -46,10 +46,10 @@ export const AddReservation = () => {
         }),
       });
     } catch (error) {
-      console.log(error);
+      response.status(400).send();
+      throw error;
     }
     openModal();
-    
   };
 
   return (
