@@ -12,28 +12,24 @@ const NextFeastAux = ({ value }) => {
   return (
     <div class="upcomingContainer">
       <div class="upcomingFeast">
-        <h1>
-          <span className="bold-text">Feast: </span>
-          {value.title}
-        </h1>
-        <h2>
-          <span className="bold-text">Description: </span> {value.description}
-        </h2>
-        <h3>
-          <span className="bold-text">Capacity: </span> {value.max_reservations}
-        </h3>
-        <h3>
+        <h1 className="title">{value.title}</h1>
+        <p>{value.description}</p>
+        <p>
+          <span className="bold-text">Capacity: </span> {value.max_reservations}{" "}
+          feasters
+        </p>
+        <p>
           <span className="bold-text">Price: </span> {value.price} DKK
-        </h3>
-        <h3>
+        </p>
+        <p>
           <span className="bold-text">When: </span>{" "}
           {new Date(value.when).toLocaleDateString("en-GB", {
             timeZone: "UTC",
           })}
-        </h3>
-        <h3>
+        </p>
+        <p>
           <span className="bold-text">Where: </span> {value.location}
-        </h3>
+        </p>
       </div>
       <div>
         <h1 className="upcomingTitle">Upcoming feast</h1>

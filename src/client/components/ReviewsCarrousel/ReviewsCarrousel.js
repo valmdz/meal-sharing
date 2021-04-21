@@ -36,8 +36,9 @@ export const ReviewsCarrousel = () => {
             return (
               <Slide index={review.reviews_id_reviews}>
                 <div className="carouselReviews">
+                  <p>About the feast: </p>
                   <h1>
-                    {review.meals_title ? `Feast: ${review.meals_title}` : ""}
+                    {review.meals_title ? review.meals_title : ""}
                   </h1>
                   <h2>
                     {review.reviews_title ? review.reviews_title : "review"}
