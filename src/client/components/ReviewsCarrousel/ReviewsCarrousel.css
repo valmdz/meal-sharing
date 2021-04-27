@@ -1,0 +1,42 @@
+.carousel-content {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  padding-top: 2em;
+}
+
+.carousel-content>* {
+  flex-grow: 2;
+  align-self: flex-start;
+  max-width: 80%;
+}
+
+.carousel-title {
+  margin-right: 1em;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.carousel-reviews {
+  padding: 2em;
+  background: #f2f0f0;
+  margin-bottom: 1.5em;
+  border-radius: 20px;
+}
+
+.carousel>button {
+  background-color: Transparent;
+  padding: 0;
+  text-transform: capitalize;
+  width: 5em;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+  .carousel-content {
+    display: flow-root;
+  }
+  .carousel-content>* {
+    max-width: 100%;
+  }
+}

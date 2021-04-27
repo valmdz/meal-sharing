@@ -1,0 +1,51 @@
+.section-heading {
+  color: #703E30;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: lighter;
+  margin-bottom: 1.5em;
+}
+
+.container {
+  margin-top: 5em;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 1.5em;
+  column-gap: 2em;
+}
+
+.button-modal {
+  float: right;
+}
+
+.pop-up p{
+  font-size: 1.8em;
+  font-style: italic;
+  margin: 0;
+}
+
+.pop-up h3{
+  text-align: end;
+}
+
+@media screen and (max-width: 750px) {
+  h1.section-heading {
+    font-size: 2em;
+    text-align: left;
+    margin-bottom: 1em;
+  }
+  div.container {
+    margin-top: 1em;
+  }
+  form {
+    left: 0;
+    right: 0;
+    grid-template: unset;
+    margin-left: 2.5em;
+    row-gap: 1em;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal, { ReactModal } from "react-modal";
 import ReactDOM from "react-dom";
+import "./AddReservation.css";
 
 Modal.setAppElement("#root");
 
@@ -121,36 +122,37 @@ export const AddReservation = () => {
             Submit
           </button>
         </form>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Your reservation has been registered"
           style={{
             overlay: {
-              top: "15%",
-              left: "30%",
-              maxWidth: "40%",
+              inset: "10% 15%",
+              maxWidth: "70%",
               maxHeight: "80%",
               backgroundColor: "none",
             },
             content: {
               position: "absolute",
+              inset: "2em",
               borderRadius: "10px",
               border: "8px solid rgb(215, 179, 189)",
               top: "20px",
               padding: "3em",
+              boxShadow: " 0 24px 36px 0 rgb(104 115 125 / 15%)",
             },
           }}
         >
           <div className="pop-up">
-            <h1>
-              Hej {reservation.contact_name}! <br></br>your following
-              reservation is confirmed:
-            </h1>
-            <h2>Feast: {reservation.meal_id}</h2>
-            <h2>For {reservation.number_of_guests} guests</h2>
+            <h1>Hej! </h1>
+            <p>{reservation.contact_name}</p>{" "}
+            <h1>your following reservation is confirmed:</h1>
+            <p>Feast: {reservation.meal_id}</p>
+            <p>For {reservation.number_of_guests} guests</p>
             <h3>See you there!</h3>
-            <button onClick={closeModal} className="buttonModal">
+            <button onClick={closeModal} className="button-modal">
               Close
             </button>
           </div>

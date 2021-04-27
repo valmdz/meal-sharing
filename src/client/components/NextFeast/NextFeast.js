@@ -1,17 +1,18 @@
 import React from "react";
+import './NextFeast.css'
 
 const NextFeastAux = ({ value }) => {
   if (value === undefined) {
     return (
       <div>
-        <h1 className="upcomingTitle">Upcoming feast</h1>
-        <p>No upcomming feasts</p>
+        <h1 className="upcoming-title">Upcoming feast</h1>
+        <p>No upcoming feasts</p>
       </div>
     );
   }
   return (
-    <div class="upcomingContainer">
-      <div class="upcomingFeast">
+    <div class="upcoming-container">
+      <div class="upcoming-feast">
         <h1 className="title">{value.title}</h1>
         <p>{value.description}</p>
         <p>
@@ -32,7 +33,7 @@ const NextFeastAux = ({ value }) => {
         </p>
       </div>
       <div>
-        <h1 className="upcomingTitle">Upcoming feast</h1>
+        <h1 className="upcoming-title">Upcoming feast</h1>
         <button>Make a reservation!</button>
       </div>
     </div>

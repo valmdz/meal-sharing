@@ -1,5 +1,5 @@
 import React from "react";
-import "./testComponentStyle.css";
+import "./Meals.css";
 
 export const Meals = ({ search, meals }) => {
   const filteredMeals = meals.filter((meal) =>

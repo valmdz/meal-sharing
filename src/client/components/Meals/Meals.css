@@ -5,6 +5,11 @@
   border-radius: 20px;
   background-color: #f2f0f0;
   color: #703E30;
+  box-shadow: 0 24px 36px 0 rgb(104 115 125 / 15%);
+}
+
+.container-meals {
+  margin-bottom: 2em;
 }
 
 .container {

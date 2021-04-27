@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./MyRegistrations.css";
 
 export const MyRegistrations = ({ reservations }) => {
   const [search, setSearch] = useState("");

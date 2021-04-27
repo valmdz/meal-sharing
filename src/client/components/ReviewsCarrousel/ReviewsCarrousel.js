@@ -7,6 +7,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import "./ReviewsCarrousel.css";
 
 export const ReviewsCarrousel = () => {
   const [reviews, setReviews] = useState([]);
@@ -22,8 +23,8 @@ export const ReviewsCarrousel = () => {
   }, []);
 
   return (
-    <div className="carouselContent">
-      <h1 className="carouselTitle">What people say about our events</h1>
+    <div className="carousel-content">
+      <h1 className="carousel-title">What people say about our events</h1>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={150}
@@ -35,11 +36,9 @@ export const ReviewsCarrousel = () => {
           {reviews.map((review) => {
             return (
               <Slide index={review.reviews_id_reviews}>
-                <div className="carouselReviews">
+                <div className="carousel-reviews">
                   <p>About the feast: </p>
-                  <h1>
-                    {review.meals_title ? review.meals_title : ""}
-                  </h1>
+                  <h1>{review.meals_title ? review.meals_title : ""}</h1>
                   <h2>
                     {review.reviews_title ? review.reviews_title : "review"}
                   </h2>
@@ -49,9 +48,9 @@ export const ReviewsCarrousel = () => {
                       : "no stars"}{" "}
                   </p>
                   <p>
-                    {review.reviews_description
+                    "{review.reviews_description
                       ? review.reviews_description
-                      : "no description"}{" "}
+                      : "no description"}"{" "}
                   </p>
                   <p className="small-text">
                     {review.reviews_created_date
@@ -66,8 +65,8 @@ export const ReviewsCarrousel = () => {
           })}
         </Slider>
 
-        <ButtonBack>Back</ButtonBack>
-        <ButtonNext>Next</ButtonNext>
+        <ButtonBack>{`◄ Back`}</ButtonBack>
+        <ButtonNext>{`Next ►`}</ButtonNext>
       </CarouselProvider>
     </div>
   );

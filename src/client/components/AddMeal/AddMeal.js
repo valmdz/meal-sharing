@@ -116,18 +116,19 @@ export const AddMeal = () => {
           contentLabel="Your reservation has been registered"
           style={{
             overlay: {
-              top: "5%",
-              left: "20%",
+              inset: "10% 15%",
               maxWidth: "70%",
-              maxHeight: "90%",
+              maxHeight: "80%",
               backgroundColor: "none",
             },
             content: {
               position: "absolute",
+              inset: "2em",
               borderRadius: "10px",
               border: "8px solid rgb(215, 179, 189)",
               top: "20px",
               padding: "3em",
+              boxShadow: " 0 24px 36px 0 rgb(104 115 125 / 15%)",
             },
           }}
         >
