@@ -35,7 +35,10 @@ export const ReviewsCarrousel = () => {
         <Slider>
           {reviews.map((review) => {
             return (
-              <Slide index={review.reviews_id_reviews}>
+              <Slide
+                index={review.reviews_id_reviews}
+                key={review.reviews_title.replace(/ /g, "_")}
+              >
                 <div className="carousel-reviews">
                   <p>About the feast: </p>
                   <h1>{review.meals_title ? review.meals_title : ""}</h1>
@@ -48,9 +51,11 @@ export const ReviewsCarrousel = () => {
                       : "no stars"}{" "}
                   </p>
                   <p>
-                    "{review.reviews_description
+                    "
+                    {review.reviews_description
                       ? review.reviews_description
-                      : "no description"}"{" "}
+                      : "no description"}
+                    "{" "}
                   </p>
                   <p className="small-text">
                     {review.reviews_created_date
