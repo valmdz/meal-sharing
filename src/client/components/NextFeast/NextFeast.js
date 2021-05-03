@@ -1,5 +1,5 @@
 import React from "react";
-import './NextFeast.css'
+import "./NextFeast.css";
 
 const NextFeastAux = ({ value }) => {
   if (value === undefined) {
@@ -32,7 +32,7 @@ const NextFeastAux = ({ value }) => {
           <span className="bold-text">Where: </span> {value.location}
         </p>
       </div>
-      <div>
+      <div className="heading scroll-animation">
         <h1 className="upcoming-title">Upcoming feast</h1>
         <button>Make a reservation!</button>
       </div>

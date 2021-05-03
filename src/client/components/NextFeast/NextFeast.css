@@ -17,7 +17,6 @@
 }
 
 .upcoming-container div {
-  /* align-items: center; */
   place-self: center;
 }
 
@@ -40,6 +39,19 @@
 .upcoming-feast>.title {
   color: #703E30;
   font-size: 2em;
+}
+
+.upcoming-feast .heading{
+  animation: opacity 2s linear forwards;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 750px) {
