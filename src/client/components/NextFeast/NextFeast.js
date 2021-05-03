@@ -11,8 +11,8 @@ const NextFeastAux = ({ value }) => {
     );
   }
   return (
-    <div class="upcoming-container">
-      <div class="upcoming-feast">
+    <div className="upcoming-container">
+      <div className="upcoming-feast">
         <h1 className="title">{value.title}</h1>
         <p>{value.description}</p>
         <p>
